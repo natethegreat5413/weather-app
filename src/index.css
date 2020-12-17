@@ -13,7 +13,6 @@ body {
 	/* background: url('./videos/main-cold.mp4'); */
 	background-position: bottom;
 	background-size: cover;
-
 	transition: 0.4s ease-out;
 }
 
@@ -21,10 +20,6 @@ body {
 	background-image: url('./images/ethan-robertson-SYx3UCHZJlo-unsplash.jpg');
 	/* background: url('./videos/warm.mp4'); */
 }
-
-/* .app.fall {
-	background-image: url('./images/fall.jpg');
-} */
 
 main {
 	min-height: 100vh;

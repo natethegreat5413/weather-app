@@ -53,14 +53,7 @@ function App() {
 	// const { icon } = weather.weather[0];
 
 	return (
-		<div
-			className={
-				typeof weather.main != 'undefined'
-					? weather.weather[0].main === 'Clear' && weather.main >= 65
-						? 'app warm'
-						: 'app'
-					: 'app'
-			}>
+		<div className={typeof weather.main != 'undefined' ? (weather.main.temp >= 65 ? 'app warm' : 'app') : 'app'}>
 			{/* <video
 				className={typeof weather.main != 'undefined' ? (weather.main.temp > 65 ? 'app warm' : 'app') : 'app'}
 				autoPlay

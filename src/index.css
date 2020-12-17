@@ -9,7 +9,8 @@ body {
 }
 
 .app {
-	background-image: url('.././src/images/krzysztof-kowalik-t8p9dbMpAzg-unsplash.jpg');
+	background-image: url('./images/cabin-winter.jpg');
+	/* background: url('./videos/main-cold.mp4'); */
 	background-position: bottom;
 	background-size: cover;
 
@@ -17,13 +18,18 @@ body {
 }
 
 .app.warm {
-	background-image: url('../src/images/ethan-robertson-SYx3UCHZJlo-unsplash.jpg');
+	background-image: url('./images/ethan-robertson-SYx3UCHZJlo-unsplash.jpg');
+	/* background: url('./videos/warm.mp4'); */
 }
+
+/* .app.fall {
+	background-image: url('./images/fall.jpg');
+} */
 
 main {
 	min-height: 100vh;
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
-	padding: 25px;
+	padding: 0 25px 25px 25px;
 }
 
 .search-box {
@@ -33,7 +39,7 @@ main {
 
 .search-box .search-bar {
 	display: block;
-	width: 100%;
+	width: 50%;
 	padding: 15px;
 
 	appearance: none;
@@ -49,6 +55,13 @@ main {
 
 	color: #313131;
 	font-size: 20px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 650px) {
+	.search-box .search-bar {
+		width: 100%;
+	}
 }
 
 .search-box .search-bar:focus {
@@ -99,4 +112,8 @@ main {
 	font-size: 48px;
 	font-weight: 700;
 	text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.weather-image {
+	width: 7%;
 }

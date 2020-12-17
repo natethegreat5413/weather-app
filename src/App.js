@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import video1 from './videos/main-cold.mp4';
+import video2 from './videos/warm.mp4';
 import './App.css';
 
 const api = {
@@ -12,7 +14,7 @@ function App() {
 
 	const search = (evt) => {
 		if (evt.key === 'Enter') {
-			fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+			fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
 				.then((res) => res.json())
 				.then((result) => {
 					setWeather(result);
@@ -44,11 +46,28 @@ function App() {
 		let month = months[d.getMonth()];
 		let year = d.getFullYear();
 
-		return `${day} ${date} ${month} ${year}`;
+		return `${day} ${month} ${date},  ${year}`;
 	};
 
+	// let locationIcon = document.querySelector('.weather-icon');
+	// const { icon } = weather.weather[0];
+
 	return (
-		<div className={typeof weather.main != 'undefined' ? (weather.main.temp > 16 ? 'app warm' : 'app') : 'app'}>
+		<div
+			className={
+				typeof weather.main != 'undefined'
+					? weather.weather[0].main === 'Clear' && weather.main >= 65
+						? 'app warm'
+						: 'app'
+					: 'app'
+			}>
+			{/* <video
+				className={typeof weather.main != 'undefined' ? (weather.main.temp > 65 ? 'app warm' : 'app') : 'app'}
+				autoPlay
+				loop
+				muted
+				src={video1}
+			/> */}
 			<main>
 				<div className="search-box">
 					<input
@@ -69,8 +88,17 @@ function App() {
 							<div className="date">{dateBuilder(new Date())}</div>
 						</div>
 						<div className="weather-box">
-							<div className="temp">{Math.round(weather.main.temp)}°c</div>
-							<div className="weather">{weather.weather[0].main}</div>
+							<div className="temp">{Math.round(weather.main.temp)}°f</div>
+							<div className="weather">
+								{weather.weather[0].description}
+								<br />
+								{
+									<img
+										className="weather-image"
+										src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+									/>
+								}
+							</div>
 						</div>
 					</div>
 				) : (

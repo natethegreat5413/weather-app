@@ -4,9 +4,9 @@ It's always a good idea to know what the weather is outside ☁ Well now you hav
 
 ## Tech Stack
 
-React
-CSS
-openweathermap API
+- React
+- CSS
+- openweathermap API
 
 ## Future Features to Be Added
 
